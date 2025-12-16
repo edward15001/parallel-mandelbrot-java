@@ -1,0 +1,8 @@
+es\eduardo\mandelbrot\MandelbrotCalculator.class
+es\eduardo\mandelbrot\SequentialRenderer.class
+es\eduardo\mandelbrot\ForkJoinRenderer$RenderTask.class
+es\eduardo\mandelbrot\MandelbrotConfig.class
+es\eduardo\mandelbrot\ForkJoinRenderer.class
+es\eduardo\mandelbrot\Utils.class
+es\eduardo\mandelbrot\Main.class
+es\eduardo\mandelbrot\ParallelRendererExecutor.class

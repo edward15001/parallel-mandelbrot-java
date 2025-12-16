@@ -70,7 +70,7 @@ cd parallel-mandelbrot-java
 
 # Compile and build the project
 mvn clean install
+mvn clean package
+mvn exec:java
+
 ```
-```bash
-# Run the application
-java -jar target/mandelbrot-renderer-1.0-SNAPSHOT.jar

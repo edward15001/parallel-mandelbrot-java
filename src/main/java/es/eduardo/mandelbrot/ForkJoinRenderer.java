@@ -36,7 +36,7 @@ public class ForkJoinRenderer {
                         int iter = MandelbrotCalculator.iterationsForPoint(
                                 x0, y0, config.maxIterations);
 
-                        int color = colorFromIterations(iter, config.maxIterations);
+                        int color = MandelbrotCalculator.colorFromIterations(iter, config.maxIterations);
                         image.setRGB(px, py, color);
                     }
                 }
@@ -49,13 +49,6 @@ public class ForkJoinRenderer {
 
                 invokeAll(top, bottom);
             }
-        }
-
-        private int colorFromIterations(int iter, int maxIter) {
-            if (iter == maxIter)
-                return 0x000000;
-            int val = (int) (255.0 * iter / maxIter);
-            return (val << 16) | (0 << 8) | (255 - val);
         }
     }
 

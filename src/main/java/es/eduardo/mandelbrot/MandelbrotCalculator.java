@@ -15,4 +15,24 @@ public class MandelbrotCalculator {
         }
         return iter;
     }
+
+    public static int colorFromIterations(int iter, int maxIterations) {
+        if (iter == maxIterations) {
+            return 0x000000; // Interior is black
+        }
+        
+        // Calculate brightness based on iterations (normalized 0 to 1)
+        double t = (double) iter / maxIterations;
+        
+        // Use a power function to make the "glow" around the fractal more visible
+        // Lower exponents (e.g., 0.5) make the gradient reach further.
+        int brightness = (int) (255 * Math.pow(t, 0.5));
+        
+        // Yellow color: R and G are high, B is 0
+        int r = brightness;
+        int g = brightness;
+        int b = 0;
+        
+        return (r << 16) | (g << 8) | b;
+    }
 }

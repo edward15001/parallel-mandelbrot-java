@@ -27,7 +27,7 @@ public class ParallelRendererExecutor {
                     double x0 = config.xMin + px * (config.xMax - config.xMin) / (config.width - 1);
 
                     int iter = MandelbrotCalculator.iterationsForPoint(x0, y0, config.maxIterations);
-                    int color = colorFromIterations(iter, config.maxIterations);
+                    int color = MandelbrotCalculator.colorFromIterations(iter, config.maxIterations);
 
                     image.setRGB(px, row, color);
                 }
@@ -38,15 +38,5 @@ public class ParallelRendererExecutor {
         latch.await();
         executor.shutdown();
         return image;
-    }
-
-    private static int colorFromIterations(int iter, int maxIter) {
-        if (iter == maxIter)
-            return 0x000000;
-        int val = (int) (255.0 * iter / maxIter);
-        int r = val;
-        int g = 0;
-        int b = 255 - val;
-        return (r << 16) | (g << 8) | b;
     }
 }
